@@ -18,7 +18,6 @@ namespace QLCafe
     public partial class frmGoiMon : DevExpress.XtraEditors.XtraForm
     {
         int IDBan = frmBanHang.IDBan;
-        //DateTime GioVao = frmBanHang.GioVao;
         int IDHoaDon = DAO_BanHang.IDHoaDon(frmBanHang.IDBan);
         List<ChiTietHoaDon> listChiTietHoaDon = new List<ChiTietHoaDon>();
 
@@ -41,11 +40,6 @@ namespace QLCafe
             DanhSachMonAnBanChay();
             listChiTietHoaDon.Clear();
             lblTenBan.Text = DAO_GoiMon.TenBan(IDBan);
-            
-            //cmbHangHoa.Properties.DataSource = danhsachhanghoa;
-            //cmbHangHoa.Properties.ValueMember = "ID";
-            //cmbHangHoa.Properties.DisplayMember = "TenHangHoa";
-
             DataTable danhsachtuchon = DAO_HangHoa.DanhSachTuChon();
             cmbHangHoaTuChon.Properties.DataSource = danhsachtuchon;
             cmbHangHoaTuChon.Properties.ValueMember = "ID";
@@ -53,61 +47,71 @@ namespace QLCafe
         }
         public void DanhSachMonAnBanChay()
         {
-           // List<DTO_BAN> tablelist = DAO_BAN.Instance.LoadTableList(IDKhuVuc);
-           // DataTable db = DAO_GoiMon.DanhSachMonAnBanChay();
-            DataTable db = BUS_HangHoa.DSHangHoa_Full();
-            if (db.Rows.Count > 0)
+            tblTableMonAn.Controls.Clear();
+            if (txtTimKiem.Text == "")
             {
-                foreach(DataRow dr in db.Rows)
+                DataTable db = BUS_HangHoa.DSHangHoa_Full();
+                if (db.Rows.Count > 0)
                 {
-                    SimpleButton btn = new SimpleButton();
-                    btn.Width = 108;
-                    btn.Height = 40;
-                    btn.Text = dr["TenHangHoa"].ToString();
-                    //btn.DoubleClick += btn_Click;
-                    btn.Click += btn_Click;
-                    btn.Tag = dr["ID"].ToString();
-                    btn.ForeColor = Color.Black;
-                    btn.StyleController = null;
-                    btn.LookAndFeel.UseDefaultLookAndFeel = false;
-                    tblTableMonAn.Controls.Add(btn);
+                    foreach (DataRow dr in db.Rows)
+                    {
+                        SimpleButton btn = new SimpleButton();
+                        btn.Width = 108;
+                        btn.Height = 60;
+                        btn.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+                        btn.Text = dr["TenHangHoa"].ToString();
+                        btn.Click += btn_Click;
+                        btn.Tag = dr["ID"].ToString();
+                        btn.ForeColor = Color.Black;
+                        btn.StyleController = null;
+                        btn.LookAndFeel.UseDefaultLookAndFeel = false;
+                        tblTableMonAn.Controls.Add(btn);
+                    }
+                }
+            }
+            else
+            {
+                DataTable db = BUS_HangHoa.DSHangHoaTimKiem(txtTimKiem.Text.ToString());
+                if (db.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in db.Rows)
+                    {
+                        SimpleButton btn = new SimpleButton();
+                        btn.Width = 108;
+                        btn.Height = 60;
+                        btn.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+                        btn.Text = dr["TenHangHoa"].ToString();
+                        btn.Click += btn_Click;
+                        btn.Tag = dr["ID"].ToString();
+                        btn.ForeColor = Color.Black;
+                        btn.StyleController = null;
+                        btn.LookAndFeel.UseDefaultLookAndFeel = false;
+                        tblTableMonAn.Controls.Add(btn);
+                    }
                 }
             }
         }
 
         private void btn_Click(object sender, EventArgs e)
         {
-            //sint ID = (sender as SimpleButton).Tag;
             string ID = (sender as SimpleButton).Tag.ToString();
-           // MessageBox.Show(ID);
             DataTable dt = DAO_HangHoa.DanhSachHangHoa_ID(Int32.Parse(ID));
             ThemMonAn(dt,0);
             BindGridChiTietHoaDon();
         }
-
-        //private void btnLuu_Click(object sender, EventArgs e)
-        //{
-        //    if (cmbHangHoa.Text != "Chọn Hàng Hóa")
-        //    {
-        //        int id = 0;
-        //        object displayValue = cmbHangHoa.EditValue;
-        //        id = Int32.Parse(displayValue.ToString());
-        //        DataTable dt = DAO_HangHoa.DanhSachHangHoa_ID(id);
-        //        ThemMonAn(dt,0);
-        //        BindGridChiTietHoaDon();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Vui lòng chọn món ăn?", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
         public void ThemMonAn(DataTable tbThongTin, float TrongLuong)
         {
+            int IDBangGia = DAO_GoiMon.LayIDBanGia(IDBan);
             int IDHangHoa = Int32.Parse(tbThongTin.Rows[0]["ID"].ToString());
             string MaHangHoa = tbThongTin.Rows[0]["MaHangHoa"].ToString();
             string TenHangHoa = tbThongTin.Rows[0]["TenHangHoa"].ToString();
             string TenDonViTinh = tbThongTin.Rows[0]["TenDonViTinh"].ToString();
             float GiaBan = float.Parse(tbThongTin.Rows[0]["GiaBan"].ToString());
+            if (IDBangGia != 0)
+            {
+                GiaBan = DAO_GoiMon.LayGiaBan(IDHangHoa, IDBangGia);
+            }
+           
             int IDDonViTinh = Int32.Parse(tbThongTin.Rows[0]["IDDonViTinh"].ToString());
             int idban = IDBan;
             int SL = Int32.Parse(txtSoLuongTuChon.Text);
@@ -144,6 +148,7 @@ namespace QLCafe
         {
             txtSoLuongTuChon.Text = "1";
             txtTrongLuongTuChon.Text = "0";
+            //txtDonGiaBan.Text = "0";
             gridViewHangHoa.OptionsSelection.EnableAppearanceFocusedRow = false;// Ẩn dòng đầu...
             gridControllHangHoa.DataSource = null;
             gridControllHangHoa.Refresh();
@@ -307,7 +312,7 @@ namespace QLCafe
                     string MaHangHoa = dt.Rows[0]["MaNguyenLieu"].ToString();
                     string TenHangHoa = dt.Rows[0]["TenNguyenLieu"].ToString();
                     string TenDonViTinh = dt.Rows[0]["TenDonViTinh"].ToString();
-                    float GiaBan = float.Parse(dt.Rows[0]["GiaBan"].ToString());
+                    float GiaBan = float.Parse(txtDonGiaBan.Text.ToString());
                     int IDDonViTinh = Int32.Parse(dt.Rows[0]["IDDonViTinh"].ToString());
                     int idban = IDBan;
                     int SL = Int32.Parse(txtSoLuongTuChon.Text);
@@ -347,6 +352,21 @@ namespace QLCafe
             {
                 MessageBox.Show("Vui lòng chọn món ăn tự chọn?", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cmbHangHoaTuChon_EditValueChanged(object sender, EventArgs e)
+        {
+            if (cmbHangHoaTuChon.Text != "Chọn Hàng Hóa")
+            {
+                string IDHangHoa = cmbHangHoaTuChon.EditValue.ToString();
+                float GiaBan = DAO_GoiMon.LayGiaBanTuChon(IDHangHoa);
+                txtDonGiaBan.Text = GiaBan.ToString();
+            }
+        }
+
+        private void txtTimKiem_EditValueChanged(object sender, EventArgs e)
+        {
+            DanhSachMonAnBanChay();
         }
 
       

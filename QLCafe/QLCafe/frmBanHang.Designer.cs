@@ -30,13 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBanHang));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.btnXoa = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.btnTachHoaDon = new DevExpress.XtraEditors.SimpleButton();
             this.btnInTam = new DevExpress.XtraEditors.SimpleButton();
             this.cmbHinhThucGiamGia = new DevExpress.XtraEditors.ComboBoxEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -55,6 +54,7 @@
             this.barButtonTinhGio = new DevExpress.XtraBars.BarButtonItem();
             this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.btnTachHoaDon = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -147,7 +147,7 @@
             // btnXoa
             // 
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -168,11 +168,11 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.btnTachHoaDon);
             this.panelControl2.Controls.Add(this.btnInTam);
             this.panelControl2.Controls.Add(this.cmbHinhThucGiamGia);
             this.panelControl2.Controls.Add(this.btnThanhToan);
             this.panelControl2.Controls.Add(this.labelControl12);
+            this.panelControl2.Controls.Add(this.btnTachHoaDon);
             this.panelControl2.Controls.Add(this.labelControl11);
             this.panelControl2.Controls.Add(this.labelControl8);
             this.panelControl2.Controls.Add(this.labelControl5);
@@ -183,29 +183,17 @@
             this.panelControl2.Controls.Add(this.txtKhachCanTra);
             this.panelControl2.Controls.Add(this.txtGiamGia);
             this.panelControl2.Controls.Add(this.txtTongTien);
-            this.panelControl2.Location = new System.Drawing.Point(571, 478);
+            this.panelControl2.Location = new System.Drawing.Point(571, 470);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(727, 190);
+            this.panelControl2.Size = new System.Drawing.Size(727, 200);
             this.panelControl2.TabIndex = 13;
-            // 
-            // btnTachHoaDon
-            // 
-            this.btnTachHoaDon.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTachHoaDon.Appearance.Options.UseFont = true;
-            this.btnTachHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btnTachHoaDon.Image")));
-            this.btnTachHoaDon.Location = new System.Drawing.Point(316, 142);
-            this.btnTachHoaDon.Name = "btnTachHoaDon";
-            this.btnTachHoaDon.Size = new System.Drawing.Size(125, 36);
-            this.btnTachHoaDon.TabIndex = 3;
-            this.btnTachHoaDon.Text = "Tách Bill";
-            this.btnTachHoaDon.Click += new System.EventHandler(this.btnTachHoaDon_Click);
             // 
             // btnInTam
             // 
             this.btnInTam.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInTam.Appearance.Options.UseFont = true;
             this.btnInTam.Image = ((System.Drawing.Image)(resources.GetObject("btnInTam.Image")));
-            this.btnInTam.Location = new System.Drawing.Point(151, 142);
+            this.btnInTam.Location = new System.Drawing.Point(161, 146);
             this.btnInTam.Name = "btnInTam";
             this.btnInTam.Size = new System.Drawing.Size(137, 36);
             this.btnInTam.TabIndex = 3;
@@ -215,7 +203,7 @@
             // cmbHinhThucGiamGia
             // 
             this.cmbHinhThucGiamGia.EditValue = "$";
-            this.cmbHinhThucGiamGia.Location = new System.Drawing.Point(546, 14);
+            this.cmbHinhThucGiamGia.Location = new System.Drawing.Point(547, 11);
             this.cmbHinhThucGiamGia.MenuManager = this.barManager1;
             this.cmbHinhThucGiamGia.Name = "cmbHinhThucGiamGia";
             this.cmbHinhThucGiamGia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -350,7 +338,7 @@
             this.btnThanhToan.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhToan.Appearance.Options.UseFont = true;
             this.btnThanhToan.Image = ((System.Drawing.Image)(resources.GetObject("btnThanhToan.Image")));
-            this.btnThanhToan.Location = new System.Drawing.Point(468, 142);
+            this.btnThanhToan.Location = new System.Drawing.Point(473, 146);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(135, 36);
             this.btnThanhToan.TabIndex = 3;
@@ -360,17 +348,29 @@
             // labelControl12
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl12.Location = new System.Drawing.Point(370, 98);
+            this.labelControl12.Location = new System.Drawing.Point(371, 101);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelControl12.Size = new System.Drawing.Size(90, 18);
             this.labelControl12.TabIndex = 4;
             this.labelControl12.Text = "TIỀN THỒI";
             // 
+            // btnTachHoaDon
+            // 
+            this.btnTachHoaDon.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTachHoaDon.Appearance.Options.UseFont = true;
+            this.btnTachHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btnTachHoaDon.Image")));
+            this.btnTachHoaDon.Location = new System.Drawing.Point(325, 146);
+            this.btnTachHoaDon.Name = "btnTachHoaDon";
+            this.btnTachHoaDon.Size = new System.Drawing.Size(125, 36);
+            this.btnTachHoaDon.TabIndex = 3;
+            this.btnTachHoaDon.Text = "Tách Bill";
+            this.btnTachHoaDon.Click += new System.EventHandler(this.btnTachHoaDon_Click);
+            // 
             // labelControl11
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Location = new System.Drawing.Point(5, 98);
+            this.labelControl11.Location = new System.Drawing.Point(5, 101);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelControl11.Size = new System.Drawing.Size(166, 18);
@@ -380,7 +380,7 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(5, 59);
+            this.labelControl8.Location = new System.Drawing.Point(5, 62);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelControl8.Size = new System.Drawing.Size(132, 18);
@@ -390,7 +390,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(369, 60);
+            this.labelControl5.Location = new System.Drawing.Point(370, 57);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelControl5.Size = new System.Drawing.Size(83, 18);
@@ -400,7 +400,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(369, 22);
+            this.labelControl3.Location = new System.Drawing.Point(370, 19);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelControl3.Size = new System.Drawing.Size(174, 18);
@@ -425,7 +425,7 @@
             0,
             0});
             this.txtTienThoi.Enabled = false;
-            this.txtTienThoi.Location = new System.Drawing.Point(545, 91);
+            this.txtTienThoi.Location = new System.Drawing.Point(547, 94);
             this.txtTienThoi.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.txtTienThoi.Name = "txtTienThoi";
             this.txtTienThoi.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -449,7 +449,7 @@
             0,
             0,
             0});
-            this.txtKhachThanhToan.Location = new System.Drawing.Point(182, 91);
+            this.txtKhachThanhToan.Location = new System.Drawing.Point(182, 94);
             this.txtKhachThanhToan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.txtKhachThanhToan.Name = "txtKhachThanhToan";
             this.txtKhachThanhToan.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -475,7 +475,7 @@
             0,
             0});
             this.txtKhachCanTra.Enabled = false;
-            this.txtKhachCanTra.Location = new System.Drawing.Point(182, 52);
+            this.txtKhachCanTra.Location = new System.Drawing.Point(182, 55);
             this.txtKhachCanTra.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.txtKhachCanTra.Name = "txtKhachCanTra";
             this.txtKhachCanTra.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -499,7 +499,7 @@
             0,
             0,
             0});
-            this.txtGiamGia.Location = new System.Drawing.Point(546, 53);
+            this.txtGiamGia.Location = new System.Drawing.Point(547, 50);
             this.txtGiamGia.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.txtGiamGia.Name = "txtGiamGia";
             this.txtGiamGia.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -552,7 +552,7 @@
             this.gridControlCTHD.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnXoaMonAn,
             this.repositoryItemSpinEdit2});
-            this.gridControlCTHD.Size = new System.Drawing.Size(727, 361);
+            this.gridControlCTHD.Size = new System.Drawing.Size(727, 353);
             this.gridControlCTHD.TabIndex = 12;
             this.gridControlCTHD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -631,7 +631,7 @@
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Trọng Lượng(g)";
+            this.gridColumn6.Caption = "Trọng Lượng";
             this.gridColumn6.ColumnEdit = this.repositoryItemSpinEdit2;
             this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn6.FieldName = "TrongLuong";
@@ -687,7 +687,7 @@
             // 
             this.btnXoaMonAn.AutoHeight = false;
             this.btnXoaMonAn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoaMonAn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnXoaMonAn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.btnXoaMonAn.Name = "btnXoaMonAn";
             this.btnXoaMonAn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnXoaMonAn.Click += new System.EventHandler(this.btnXoaMonAn_Click);
@@ -755,7 +755,7 @@
             // 
             this.lblTime.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblTime.Location = new System.Drawing.Point(382, 78);
+            this.lblTime.Location = new System.Drawing.Point(384, 78);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(81, 18);
             this.lblTime.TabIndex = 5;
@@ -764,7 +764,7 @@
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDangNhap.Location = new System.Drawing.Point(140, 78);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(152, 78);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(81, 18);
             this.txtTenDangNhap.TabIndex = 4;
@@ -842,7 +842,7 @@
             // lblDiaChi
             // 
             this.lblDiaChi.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiaChi.Location = new System.Drawing.Point(191, 56);
+            this.lblDiaChi.Location = new System.Drawing.Point(278, 54);
             this.lblDiaChi.Name = "lblDiaChi";
             this.lblDiaChi.Size = new System.Drawing.Size(44, 18);
             this.lblDiaChi.TabIndex = 1;
@@ -869,11 +869,11 @@
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(209, 8);
+            this.labelControl10.Location = new System.Drawing.Point(278, 7);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(392, 21);
+            this.labelControl10.Size = new System.Drawing.Size(270, 21);
             this.labelControl10.TabIndex = 0;
-            this.labelControl10.Text = "HỆ THỐNG QUẢN LÝ CAFE - MÓN ĂN TỰ CHỌN";
+            this.labelControl10.Text = "HỆ THỐNG QUẢN LÝ BÁN HÀNG";
             // 
             // menuBan
             // 
@@ -908,7 +908,7 @@
             this.MaximizeBox = false;
             this.Name = "frmBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HỆ THỐNG QUẢN LÝ CAFE - MÓN ĂN TỰ CHỌN 1.0";
+            this.Text = "HỆ THỐNG QUẢN LÝ BÁN HÀNG 1.0 ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBanHang_FormClosing);
             this.Load += new System.EventHandler(this.frmBanHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
