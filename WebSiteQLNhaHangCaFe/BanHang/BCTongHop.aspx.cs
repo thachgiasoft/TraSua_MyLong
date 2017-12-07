@@ -8,10 +8,11 @@ using System.Web.UI.WebControls;
 
 namespace BanHang
 {
-    public partial class BCBanHang_W : System.Web.UI.Page
+    public partial class BCTongHop : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void rbTheoNam_CheckedChanged(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace BanHang
             }
         }
 
-        protected void btnXem_Click(object sender, EventArgs e)
+        protected void btnXemBaoCao_Click(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
             int thang = date.Month;
@@ -76,7 +77,7 @@ namespace BanHang
             ngayBD = ngayBD + "00:00:0.000";
             ngayKT = ngayKT + "23:59:59.999";
 
-            popup.ContentUrl = "~/BCBanHang_W_In.aspx?ngayBD=" + ngayBD + "&ngayKT=" + ngayKT;
+            popup.ContentUrl = "~/BCTongHop_In.aspx?ngayBD=" + ngayBD + "&ngayKT=" + ngayKT;
             popup.ShowOnPageLoad = true;
         }
     }

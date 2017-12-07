@@ -441,7 +441,6 @@
             this.ReportFooter.Dpi = 100F;
             this.ReportFooter.HeightF = 60.60051F;
             this.ReportFooter.Name = "ReportFooter";
-            this.ReportFooter.Visible = false;
             // 
             // xrTable3
             // 
@@ -485,7 +484,6 @@
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StylePriority.UseBorders = false;
             xrSummary2.FormatString = "{0:#,#}";
-            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell14.Summary = xrSummary2;
             this.xrTableCell14.Weight = 0.75107076059495848D;
             // 
@@ -507,7 +505,7 @@
             this.xrTableCell16.Dpi = 100F;
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.StylePriority.UseBorders = false;
-            xrSummary3.FormatString = "{0:#,# VND}";
+            xrSummary3.FormatString = "{0:N0} VNĐ";
             xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell16.Summary = xrSummary3;
             this.xrTableCell16.Weight = 2.796343129773081D;
@@ -694,7 +692,7 @@
             this.xrTableCell25.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CF_HoaDon_ChiTietNguyenLieu.TrongLuong", "{0:#,#}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CF_HoaDon_ChiTietNguyenLieu.TrongLuong")});
             this.xrTableCell25.Dpi = 100F;
             this.xrTableCell25.Name = "xrTableCell25";
             this.xrTableCell25.StylePriority.UseBorders = false;

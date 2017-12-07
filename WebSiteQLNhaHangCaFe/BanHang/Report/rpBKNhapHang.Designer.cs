@@ -741,11 +741,12 @@
             this.xrTableCell21.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell21.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CF_DonDatHang.TongTien", "{0:#,# VNĐ}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CF_DonDatHang.TongTien")});
             this.xrTableCell21.Dpi = 100F;
             this.xrTableCell21.Name = "xrTableCell21";
             this.xrTableCell21.StylePriority.UseBorders = false;
             xrSummary3.FormatString = "{0:#,# VNĐ}";
+            xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell21.Summary = xrSummary3;
             this.xrTableCell21.Weight = 1.6547617260953729D;
             // 

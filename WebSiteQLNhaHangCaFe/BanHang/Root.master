@@ -134,9 +134,9 @@
                                                             </dx:RibbonDropDownButtonItem>
                                                             <dx:RibbonDropDownButtonItem Name="bc_xuatkhac" NavigateUrl="BCXuatKhac.aspx" Text="Báo cáo xuất khác">
                                                             </dx:RibbonDropDownButtonItem>
-                                                            <dx:RibbonDropDownButtonItem Name="bc_tiengio" NavigateUrl="BCTienGio.aspx" Text="Báo cáo tiền giờ" Visible="False">
-                                                            </dx:RibbonDropDownButtonItem>
                                                             <dx:RibbonDropDownButtonItem Name="bc_banhang" NavigateUrl="BCBanHang.aspx" Text="Báo cáo bán hàng">
+                                                            </dx:RibbonDropDownButtonItem>
+                                                            <dx:RibbonDropDownButtonItem Name="bc_tonghop" NavigateUrl="BCTongHop.aspx" Text="Báo cáo tổng hợp">
                                                             </dx:RibbonDropDownButtonItem>
                                                         </Items>
                                                         <LargeImage Url="~/image/baocao.png">

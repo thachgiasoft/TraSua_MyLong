@@ -623,7 +623,7 @@
             this.xrTableCell12.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CF_PhieuXuatKhac.CF_PhieuXuatKhacCF_PhieuXuatKhac_ChiTiet.DonGia")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CF_PhieuXuatKhac.CF_PhieuXuatKhacCF_PhieuXuatKhac_ChiTiet.DonGia", "{0:#,#}")});
             this.xrTableCell12.Dpi = 100F;
             this.xrTableCell12.Name = "xrTableCell12";
             this.xrTableCell12.StylePriority.UseBorders = false;

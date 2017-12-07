@@ -32,7 +32,6 @@ namespace BanHang
                 int SoLuongBan = dtQuanLyCuaHang.SoLuongBan();
                 DataTable da = dtQuanLyCuaHang.TongTienHienTai(ngayBD, ngayKT);
                 float TongTien = 0;
-                float TongTienGio = 0;
                 float KhachCanTra = 0;
                 float TongGiaMua = 0;
                 try
@@ -40,7 +39,6 @@ namespace BanHang
                     if (da.Rows.Count != 0)
                     {
                         TongTien = float.Parse(da.Rows[0]["TongTien"].ToString());
-                        TongTienGio = float.Parse(da.Rows[0]["TienGio"].ToString());
                         KhachCanTra = float.Parse(da.Rows[0]["KhachCanTra"].ToString());
                         TongGiaMua = dtQuanLyCuaHang.TongTienVonHienTai(ngayBD, ngayKT);
                     }
@@ -48,9 +46,9 @@ namespace BanHang
                 catch (Exception) { }
 
                 daHienTai.Rows.Add("Số Bàn", SoLuongBan);
-                daHienTai.Rows.Add("Tiền vốn", String.Format("{0:N0} VNĐ", TongGiaMua));
-                daHienTai.Rows.Add("Tiền hàng", String.Format("{0:N0} VNĐ", TongTien));
-                daHienTai.Rows.Add("Giảm giá", String.Format("{0:N0} VNĐ", (TongTien + TongTienGio) - KhachCanTra));
+                daHienTai.Rows.Add("Tiền hàng", String.Format("{0:N0} VNĐ", TongGiaMua));
+                daHienTai.Rows.Add("Doanh thu", String.Format("{0:N0} VNĐ", TongTien));
+                daHienTai.Rows.Add("Giảm giá", String.Format("{0:N0} VNĐ", TongTien - KhachCanTra));
                 daHienTai.Rows.Add("Tổng tiền", String.Format("{0:N0} VNĐ", KhachCanTra));
                 daHienTai.Rows.Add("Lợi nhuận", String.Format("{0:N0} VNĐ", KhachCanTra - TongGiaMua));
 

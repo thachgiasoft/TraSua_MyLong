@@ -20,6 +20,7 @@ namespace BanHang
             DataTable da = new DataTable();
             da.Columns.Add("SoBanSuDung", typeof(String));
             da.Columns.Add("TongVon", typeof(float));
+            da.Columns.Add("DoanhThu", typeof(float));
             da.Columns.Add("GiamGia", typeof(float));
             da.Columns.Add("TienHienTai", typeof(float));
             da.Columns.Add("LoiNhuan", typeof(float));
@@ -34,7 +35,6 @@ namespace BanHang
             int SoLuongBan = dtQuanLyCuaHang.SoLuongBan();
             DataTable data = dtQuanLyCuaHang.TongTienHienTai(ngayBD, ngayKT);
             float TongTien = 0;
-            float TongTienGio = 0;
             float KhachCanTra = 0;
             float TongGiaMua = 0;
             try
@@ -42,7 +42,6 @@ namespace BanHang
                 if (data.Rows.Count != 0)
                 {
                     TongTien = float.Parse(data.Rows[0]["TongTien"].ToString());
-                    TongTienGio = float.Parse(data.Rows[0]["TienGio"].ToString());
                     KhachCanTra = float.Parse(data.Rows[0]["KhachCanTra"].ToString());
                     TongGiaMua = dtQuanLyCuaHang.TongTienVonHienTai(ngayBD, ngayKT);
                 }
@@ -50,7 +49,7 @@ namespace BanHang
             catch (Exception) { }
 
 
-            da.Rows.Add(SoLuongBan, TongGiaMua, (TongTien + TongTienGio) - KhachCanTra, KhachCanTra, KhachCanTra - TongGiaMua);
+            da.Rows.Add(SoLuongBan, TongGiaMua, TongTien, TongTien - KhachCanTra, KhachCanTra, KhachCanTra - TongGiaMua);
 
             gridDanhSachBan.DataSource = da;
             gridDanhSachBan.DataBind();
