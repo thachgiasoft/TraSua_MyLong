@@ -95,6 +95,7 @@
     <Content Include="App_Data\MenuAdmin.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="BangGia.aspx" />
     <Content Include="BanHangLe.aspx" />
     <Content Include="BanHangLe_In.aspx" />
     <Content Include="BCBanHang.aspx" />
@@ -127,6 +128,7 @@
     <Content Include="BKXuatNhapChiTiet_In.aspx" />
     <Content Include="CapNhatCongNo.aspx" />
     <Content Include="ChiNhanh.aspx" />
+    <Content Include="ChiTietBangGia.aspx" />
     <Content Include="ChiTietCongNo.aspx" />
     <Content Include="ChiTietDonHang.aspx" />
     <Content Include="ChiTietPhieuKiemKho.aspx" />
@@ -146,6 +148,7 @@
     <Content Include="DanhSachPhieuNhapHang.aspx" />
     <Content Include="DanhSachPhieuXuatKhac.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DiDongQLCuaHang.aspx" />
     <Content Include="DonViTinh.aspx" />
     <Content Include="images\banhang.png" />
     <Content Include="images\baocao.png" />
@@ -251,6 +254,13 @@
     </Compile>
     <Compile Include="Account\RegisterSuccess.aspx.designer.cs">
       <DependentUpon>RegisterSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BangGia.aspx.cs">
+      <DependentUpon>BangGia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BangGia.aspx.designer.cs">
+      <DependentUpon>BangGia.aspx</DependentUpon>
     </Compile>
     <Compile Include="BanHangLe.aspx.cs">
       <DependentUpon>BanHangLe.aspx</DependentUpon>
@@ -462,6 +472,13 @@
     <Compile Include="ChiNhanh.aspx.designer.cs">
       <DependentUpon>ChiNhanh.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ChiTietBangGia.aspx.cs">
+      <DependentUpon>ChiTietBangGia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChiTietBangGia.aspx.designer.cs">
+      <DependentUpon>ChiTietBangGia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChiTietCongNo.aspx.cs">
       <DependentUpon>ChiTietCongNo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -534,6 +551,7 @@
     </Compile>
     <Compile Include="Data\dataHangHoa.cs" />
     <Compile Include="Data\dtBan.cs" />
+    <Compile Include="Data\dtBangGia.cs" />
     <Compile Include="Data\dtBanHangLe.cs" />
     <Compile Include="Data\dtBaoCao.cs" />
     <Compile Include="Data\dtCheckDangNhap.cs" />
@@ -566,6 +584,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DiDongQLCuaHang.aspx.cs">
+      <DependentUpon>DiDongQLCuaHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DiDongQLCuaHang.aspx.designer.cs">
+      <DependentUpon>DiDongQLCuaHang.aspx</DependentUpon>
     </Compile>
     <Compile Include="DonViTinh.aspx.cs">
       <DependentUpon>DonViTinh.aspx</DependentUpon>

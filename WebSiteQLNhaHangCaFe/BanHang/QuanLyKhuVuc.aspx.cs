@@ -30,9 +30,10 @@ namespace BanHang
             string KyHieu = e.NewValues["KyHieu"].ToString();
             //string TyLe = e.NewValues["GiaKhuVuc"].ToString();
             //string IDChiNhanh = e.NewValues["IDChiNhanh"].ToString();
+            string IDBangGia = e.NewValues["IDBangGia"].ToString();
             string GhiChu = e.NewValues["GhiChu"] == null ? "" : e.NewValues["GhiChu"].ToString();
             data = new dtKhuVuc();
-            data.Sua(ID, GhiChu, TenKhuVuc, "0", "1", KyHieu);
+            data.Sua(ID, GhiChu, TenKhuVuc, "0", "1", KyHieu, IDBangGia);
             e.Cancel = true;
             gridDanhSach.CancelEdit();
             LoadGrid();
@@ -46,11 +47,12 @@ namespace BanHang
             string MaKhuVuc = dtKhuVuc.Dem_Max("1");
             string TenKhuVuc = e.NewValues["TenKhuVuc"].ToString();
             //string TyLe = e.NewValues["GiaKhuVuc"].ToString();
+            string IDBangGia = e.NewValues["IDBangGia"].ToString();
             string GhiChu = e.NewValues["GhiChu"] == null ? "" : e.NewValues["GhiChu"].ToString();
             //if (dtKhuVuc.KiemTra(KyHieu) == true)
             //{
             data = new dtKhuVuc();
-            data.Them(MaKhuVuc, TenKhuVuc, "0", "1", GhiChu, KyHieu);
+            data.Them(MaKhuVuc, TenKhuVuc, "0", "1", GhiChu, KyHieu, IDBangGia);
             //}
             //else
             //{

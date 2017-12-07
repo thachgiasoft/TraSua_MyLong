@@ -57,13 +57,31 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "SELECT SUM(TongTien) as TongTien, SUM(TienGio) as TienGio FROM CF_HoaDon WHERE GioVao >= '" + GioBD + "' AND GioVao <= '" + GioKT + "' AND GioRa is not null";
+                string cmdText = "SELECT SUM(TongTien) as TongTien, SUM(TienGio) as TienGio, SUM(KhachCanTra) as KhachCanTra FROM CF_HoaDon WHERE GioVao >= '" + GioBD + "' AND GioVao <= '" + GioKT + "' AND GioRa is not null";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     DataTable tb = new DataTable();
                     tb.Load(reader);
                     return tb;
+                }
+            }
+        }
+
+        public static float TongTienVonHienTai(string GioBD, string GioKT)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT SUM(CF_NguyenLieu.GiaMua * CF_ChiTietHoaDon.SoLuong * CF_ChiTietHoaDon.trongLuong) as TongGiaMua FROM CF_NguyenLieu, CF_ChiTietHoaDon, CF_HoaDon WHERE CF_NguyenLieu.ID = CF_ChiTietHoaDon.IDHangHoa AND CF_HoaDon.ID = CF_ChiTietHoaDon.IDHoaDon AND CF_HoaDon.GioVao >= '" + GioBD + "' AND CF_HoaDon.GioVao <= '" + GioKT + "' AND CF_HoaDon.GioRa is not null AND CF_ChiTietHoaDon.TrongLuong > 0";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                        return float.Parse(tb.Rows[0]["TongGiaMua"].ToString());
+                    return 0;
                 }
             }
         }

@@ -52,19 +52,19 @@ namespace QLCafe.DTO
             get { return tenNguoiDung; }
             set { tenNguoiDung = value; }
         }
-        private double tienGio;
+        private double giamGia;
 
-        public double TienGio
+        public double GiamGia
         {
-            get { return tienGio; }
-            set { tienGio = value; }
+            get { return giamGia; }
+            set { giamGia = value; }
         }
-        private double tienNuoc;
+        private double tongTien;
 
-        public double TienNuoc
+        public double TongTien
         {
-            get { return tienNuoc; }
-            set { tienNuoc = value; }
+            get { return tongTien; }
+            set { tongTien = value; }
         }
         public DTO_KetCa(int getID, DateTime getThoiGianBatDau, DateTime getThoiGianKetThuc, double getTongTienSauCa, int getIDNhanVien, string getTenNguoiDung, double getTienGio, double getTienNuoc)
         {
@@ -74,8 +74,8 @@ namespace QLCafe.DTO
             this.TenNguoiDung = getTenNguoiDung;
             this.TongTienSauCa = getTongTienSauCa;
             this.IDNhanVien = getIDNhanVien;
-            this.TienGio = getTienGio;
-            this.TienNuoc = getTienNuoc;
+            this.TongTien = getTienGio;
+            this.GiamGia = getTienNuoc;
         }
         public DTO_KetCa(DataRow dr)
         {
@@ -85,8 +85,8 @@ namespace QLCafe.DTO
             this.TenNguoiDung = dr["TenNguoiDung"].ToString();
             this.TongTienSauCa = double.Parse(dr["TongTienSauCa"].ToString());
             this.IDNhanVien = Int32.Parse(dr["IDNhanVien"].ToString());
-            this.TienGio = double.Parse(dr["TienGio"].ToString());
-            this.TienNuoc = double.Parse(dr["TienNuoc"].ToString());
+            this.TongTien = double.Parse(dr["TongTien"].ToString());
+            this.GiamGia = double.Parse(dr["GiamGia"].ToString());
         }
     }
 }

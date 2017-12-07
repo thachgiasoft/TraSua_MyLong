@@ -175,14 +175,14 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = " SELECT GiaMua FROM [CF_NguyenLieu] WHERE ID = '" + ID + "'";
+                string cmdText = " SELECT GiaBan FROM [CF_NguyenLieu] WHERE ID = '" + ID + "'";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     DataTable tb = new DataTable();
                     tb.Load(reader);
                     if (tb.Rows.Count != 0)
-                        return float.Parse(tb.Rows[0]["GiaMua"].ToString());
+                        return float.Parse(tb.Rows[0]["GiaBan"].ToString());
                     return 0;
                 }
             }

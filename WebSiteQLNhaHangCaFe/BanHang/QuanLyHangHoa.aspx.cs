@@ -145,7 +145,18 @@ namespace BanHang
             string IDDonViTinh = e.NewValues["IDDonViTinh"].ToString();
             string IDNhomHang = e.NewValues["IDNhomHang"].ToString();
             string GhiChu = e.NewValues["GhiChu"] == null ? "" : e.NewValues["GhiChu"].ToString();
-            data.ThemHangHoa(MaHangHoa, TenHangHoa, GiaBan, IDDonViTinh, IDNhomHang, GhiChu);
+            object ID  =  data.ThemHangHoa(MaHangHoa, TenHangHoa, GiaBan, IDDonViTinh, IDNhomHang, GhiChu);
+            if (ID != null)
+            {
+                //thêm vào all bảng giá
+                dtBangGia bg = new dtBangGia();
+                DataTable dbt = bg.DanhSach();
+                foreach (DataRow dr in dbt.Rows)
+                {
+                    string IDBangGia = dr["ID"].ToString();
+                    bg.ThemIDHangHoaVaoChiTietGia(ID.ToString(), IDBangGia, GiaBan);
+                }
+            }
             e.Cancel = true;
             gridHangHoa.CancelEdit();
             LoadGrid();
@@ -163,11 +174,13 @@ namespace BanHang
             string IDDonViTinh = e.NewValues["IDDonViTinh"].ToString();
             string IDNhomHang = e.NewValues["IDNhomHang"].ToString();
             string GhiChu = e.NewValues["GhiChu"] == null ? "" : e.NewValues["GhiChu"].ToString();
-
             float GiaCu = data.LaySoTienCu(ID);
             if (GiaCu != float.Parse(GiaBan))
-                dtThayDoiGia.ThemLichSu(Session["IDNhanVien"].ToString(), ID, GiaCu + "", GiaBan);
-
+            {
+                dtThayDoiGia.ThemLichSu(Session["IDNhanVien"].ToString(), MaHangHoa, TenHangHoa, IDDonViTinh, GiaCu + "", GiaBan);
+                dtBangGia bg = new dtBangGia();
+                bg.CapNhatGiaCuTrongChiTietBangGia(ID, GiaBan);
+            }
             data.SuaHangHoa(ID, MaHangHoa, TenHangHoa, GiaBan, IDDonViTinh, IDNhomHang, GhiChu);
             e.Cancel = true;
             gridHangHoa.CancelEdit();

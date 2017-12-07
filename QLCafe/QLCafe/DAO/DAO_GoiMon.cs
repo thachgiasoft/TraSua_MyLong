@@ -10,6 +10,46 @@ namespace QLCafe.DAO
 {
     public class DAO_GoiMon
     {
+        /// <summary>
+        /// lấy giá bán tự chọn
+        /// </summary>
+        /// <param name="IDHangHoa"></param>
+        /// <param name="IDBangGia"></param>
+        /// <returns></returns>
+        public static float LayGiaBanTuChon(string IDNguyenLieu)
+        {
+            string sTruyVan = string.Format(@"SELECT GiaBan FROM [CF_NguyenLieu] WHERE ID = {0}", IDNguyenLieu);
+            DataTable data = new DataTable();
+            data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+            if (data.Rows.Count > 0)
+            {
+                DataRow dr = data.Rows[0];
+                return float.Parse(dr["GiaBan"].ToString());
+            }
+            return -1;
+        }
+        /// <summary>
+        /// lấy giá bán theo bảng giá
+        /// </summary>
+        /// <param name="IDBan"></param>
+        /// <returns></returns>
+        public static float LayGiaBan(int IDHangHoa, int IDBangGia)
+        {
+            string sTruyVan = string.Format(@"SELECT GiaMoi FROM [CF_ChiTietBangGia] WHERE IDBangGia = {0} AND IDHangHoa = {1}", IDBangGia, IDHangHoa);
+            DataTable data = new DataTable();
+            data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+            if (data.Rows.Count > 0)
+            {
+                DataRow dr = data.Rows[0];
+                return float.Parse(dr["GiaMoi"].ToString());
+            }
+            return -1;
+        }
+        /// <summary>
+        /// lấy tên bàn để hiển thị
+        /// </summary>
+        /// <param name="IDBan"></param>
+        /// <returns></returns>
         public static string TenBan(int IDBan)
         {
             string sTruyVan = string.Format(@"SELECT * FROM [CF_Ban] WHERE ID = {0} ", IDBan);
@@ -22,6 +62,50 @@ namespace QLCafe.DAO
             }
             return null;
         }
+        /// <summary>
+        /// lấy IDKhuVuc để tính giá áp dụng
+        /// </summary>
+        /// <param name="IDBan"></param>
+        /// <returns></returns>
+        public static int LayIDKhuVuc(int IDBan)
+        {
+            string sTruyVan = string.Format(@"SELECT IDKhuVuc FROM [CF_Ban] WHERE ID = {0} ", IDBan);
+            DataTable data = new DataTable();
+            data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+            if (data.Rows.Count > 0)
+            {
+                DataRow dr = data.Rows[0];
+                return Int32.Parse(dr["IDKhuVuc"].ToString());
+            }
+            return 0;
+        }
+        /// <summary>
+        /// lấy IDbanGia
+        /// </summary>
+        /// <param name="IDKhuVuc"></param>
+        /// <returns></returns>
+        public static int LayIDBanGia(int IDBan)
+        {
+            
+            string sTruyVan = string.Format(@"SELECT IDKhuVuc FROM [CF_Ban] WHERE ID = {0} ", IDBan);
+            DataTable data = new DataTable();
+            data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+            if (data.Rows.Count > 0)
+            {
+                DataRow dr = data.Rows[0];
+                sTruyVan = string.Format(@"SELECT IDBangGia FROM [CF_KhuVuc] WHERE ID = {0} ", dr["IDKhuVuc"].ToString());
+                data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+                if (data.Rows.Count > 0)
+                {
+                    DataRow dr1 = data.Rows[0];
+                    return Int32.Parse(dr1["IDBangGia"].ToString());
+                }
+                return 0;
+            }
+            return 0;
+        }
+        
+
         /// <summary>
         /// Thêm hóa đơn return IDHoaDon
         /// </summary>

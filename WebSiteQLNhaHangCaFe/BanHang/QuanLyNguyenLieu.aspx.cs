@@ -87,9 +87,10 @@ namespace BanHang
             string TrangThai = e.NewValues["TrangThai"].ToString();
             data = new dtNguyenLieu();
 
+
             float GiaCu = data.LaySoTienCu(ID);
-            if (GiaCu != float.Parse(GiaMua))
-                dtThayDoiGia.ThemLichSu(Session["IDNhanVien"].ToString(), ID, GiaCu + "", GiaMua);
+            if (GiaCu != float.Parse(GiaBan))
+                dtThayDoiGia.ThemLichSu(Session["IDNhanVien"].ToString(), MaNguyenLieu, TenNguyenLieu, IDDonViTinh, GiaCu + "", GiaBan);
 
             data.Sua(ID, MaNguyenLieu, TenNguyenLieu, NhaCungCap, GhiChu, IDDonViTinh, GiaMua, TrangThai, GiaBan);
             e.Cancel = true;

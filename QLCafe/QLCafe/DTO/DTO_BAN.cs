@@ -60,14 +60,7 @@ namespace QLCafe.DTO
             set { ngayCapNhat = value; }
         }
 
-        private string tenKhachHang;
-
-        public string TenKhachHang
-        {
-            get { return tenKhachHang; }
-            set { tenKhachHang = value; }
-        }
-        public DTO_BAN(int getid, string getmaban, string gettenban, int getkhuvuc, int gettrangthai,int getidchianh,DateTime getNgayCapNhat, string getTenKhachHang)
+        public DTO_BAN(int getid, string getmaban, string gettenban, int getkhuvuc, int gettrangthai,int getidchianh,DateTime getNgayCapNhat)
         {
             Id = getid;
             Maban = getmaban;
@@ -76,7 +69,6 @@ namespace QLCafe.DTO
             Trangthai = gettrangthai;
             IDChiNhanh = getidchianh;
             NgayCapNhat = getNgayCapNhat;
-            TenKhachHang = getTenKhachHang;
 
         }
         public DTO_BAN(DataRow dr)
@@ -88,7 +80,6 @@ namespace QLCafe.DTO
             this.Trangthai = Int32.Parse(dr["TrangThai"].ToString());
             this.IDChiNhanh = Int32.Parse(dr["IDChiNhanh"].ToString());
             this.NgayCapNhat = DateTime.Parse(dr["NgayCapNhat"].ToString());
-            this.TenKhachHang = dr["TenKhachHang"].ToString();
         }
 
     }

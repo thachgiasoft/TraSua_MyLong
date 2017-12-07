@@ -38,10 +38,10 @@
             this.repositoryItemDateEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemDateEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemSpinEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.btnXoaMonAn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -52,17 +52,17 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTienNuoc = new DevExpress.XtraEditors.SpinEdit();
+            this.txtTongTienHienTai = new DevExpress.XtraEditors.SpinEdit();
+            this.txtTienKhuyenMai = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTienGio = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKetCa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewKetCa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonAn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
@@ -72,8 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienNuoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienGio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTongTienHienTai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienKhuyenMai.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnKetCa
@@ -118,8 +118,8 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn5,
             this.gridColumn6,
+            this.gridColumn5,
             this.gridColumn4});
             this.gridViewKetCa.GridControl = this.gridKetCa;
             this.gridViewKetCa.Name = "gridViewKetCa";
@@ -182,34 +182,19 @@
             this.repositoryItemDateEdit4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.repositoryItemDateEdit4.Name = "repositoryItemDateEdit4";
             // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Tiền Giờ";
-            this.gridColumn5.ColumnEdit = this.repositoryItemSpinEdit4;
-            this.gridColumn5.DisplayFormat.FormatString = "N0";
-            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.gridColumn5.FieldName = "TienGio";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TienGio", "Tổng Tiền={0:N0}")});
-            // 
-            // repositoryItemSpinEdit4
-            // 
-            this.repositoryItemSpinEdit4.AutoHeight = false;
-            this.repositoryItemSpinEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit4.Name = "repositoryItemSpinEdit4";
-            // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Tiền Nước";
+            this.gridColumn6.Caption = "Tổng Tiền";
             this.gridColumn6.ColumnEdit = this.repositoryItemSpinEdit5;
             this.gridColumn6.DisplayFormat.FormatString = "N0";
             this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.gridColumn6.FieldName = "TienNuoc";
+            this.gridColumn6.FieldName = "TongTien";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TienNuoc", "Tổng Tiền={0:N0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TongTien", "Tổng Tiền={0:N0}")});
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 3;
             // 
             // repositoryItemSpinEdit5
             // 
@@ -218,9 +203,30 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemSpinEdit5.Name = "repositoryItemSpinEdit5";
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Giảm Giá";
+            this.gridColumn5.ColumnEdit = this.repositoryItemSpinEdit4;
+            this.gridColumn5.DisplayFormat.FormatString = "N0";
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.gridColumn5.FieldName = "GiamGia";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "GiamGia", "Tổng Tiền={0:N0}")});
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            // 
+            // repositoryItemSpinEdit4
+            // 
+            this.repositoryItemSpinEdit4.AutoHeight = false;
+            this.repositoryItemSpinEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit4.Name = "repositoryItemSpinEdit4";
+            // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Tổng Tiền";
+            this.gridColumn4.Caption = "Thành Tiền";
             this.gridColumn4.ColumnEdit = this.repositoryItemSpinEdit3;
             this.gridColumn4.FieldName = "TongTienSauCa";
             this.gridColumn4.Name = "gridColumn4";
@@ -228,7 +234,7 @@
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TongTienSauCa", "Tổng Tiền={0:N0}")});
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 5;
             // 
             // repositoryItemSpinEdit3
             // 
@@ -307,73 +313,71 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(12, 412);
+            this.labelControl1.Location = new System.Drawing.Point(12, 408);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(229, 18);
+            this.labelControl1.Size = new System.Drawing.Size(178, 18);
             this.labelControl1.TabIndex = 14;
-            this.labelControl1.Text = "TỔNG TIỀN NƯỚC HIỆN TẠI = ";
+            this.labelControl1.Text = "TỔNG TIỀN HIỆN TẠI = ";
             // 
-            // txtTienNuoc
+            // txtTongTienHienTai
             // 
-            this.txtTienNuoc.EditValue = new decimal(new int[] {
+            this.txtTongTienHienTai.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.txtTienNuoc.Enabled = false;
-            this.txtTienNuoc.Location = new System.Drawing.Point(247, 409);
-            this.txtTienNuoc.Name = "txtTienNuoc";
-            this.txtTienNuoc.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTienNuoc.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.txtTienNuoc.Properties.Appearance.Options.UseFont = true;
-            this.txtTienNuoc.Properties.Appearance.Options.UseForeColor = true;
-            this.txtTienNuoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtTongTienHienTai.Enabled = false;
+            this.txtTongTienHienTai.Location = new System.Drawing.Point(189, 406);
+            this.txtTongTienHienTai.Name = "txtTongTienHienTai";
+            this.txtTongTienHienTai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongTienHienTai.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.txtTongTienHienTai.Properties.Appearance.Options.UseFont = true;
+            this.txtTongTienHienTai.Properties.Appearance.Options.UseForeColor = true;
+            this.txtTongTienHienTai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtTienNuoc.Properties.DisplayFormat.FormatString = "N0";
-            this.txtTienNuoc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.txtTienNuoc.Size = new System.Drawing.Size(165, 24);
-            this.txtTienNuoc.TabIndex = 15;
+            this.txtTongTienHienTai.Properties.DisplayFormat.FormatString = "N0";
+            this.txtTongTienHienTai.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtTongTienHienTai.Size = new System.Drawing.Size(184, 24);
+            this.txtTongTienHienTai.TabIndex = 15;
+            // 
+            // txtTienKhuyenMai
+            // 
+            this.txtTienKhuyenMai.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtTienKhuyenMai.Enabled = false;
+            this.txtTienKhuyenMai.Location = new System.Drawing.Point(585, 406);
+            this.txtTienKhuyenMai.Name = "txtTienKhuyenMai";
+            this.txtTienKhuyenMai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienKhuyenMai.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.txtTienKhuyenMai.Properties.Appearance.Options.UseFont = true;
+            this.txtTienKhuyenMai.Properties.Appearance.Options.UseForeColor = true;
+            this.txtTienKhuyenMai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTienKhuyenMai.Properties.DisplayFormat.FormatString = "N0";
+            this.txtTienKhuyenMai.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtTienKhuyenMai.Size = new System.Drawing.Size(161, 24);
+            this.txtTienKhuyenMai.TabIndex = 17;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(430, 412);
+            this.labelControl2.Location = new System.Drawing.Point(389, 409);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(140, 18);
-            this.labelControl2.TabIndex = 14;
-            this.labelControl2.Text = "TỔNG TIỀN GIỜ = ";
-            this.labelControl2.Visible = false;
-            // 
-            // txtTienGio
-            // 
-            this.txtTienGio.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtTienGio.Enabled = false;
-            this.txtTienGio.Location = new System.Drawing.Point(576, 409);
-            this.txtTienGio.Name = "txtTienGio";
-            this.txtTienGio.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTienGio.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.txtTienGio.Properties.Appearance.Options.UseFont = true;
-            this.txtTienGio.Properties.Appearance.Options.UseForeColor = true;
-            this.txtTienGio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtTienGio.Properties.DisplayFormat.FormatString = "N0";
-            this.txtTienGio.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.txtTienGio.Size = new System.Drawing.Size(165, 24);
-            this.txtTienGio.TabIndex = 15;
-            this.txtTienGio.Visible = false;
+            this.labelControl2.Size = new System.Drawing.Size(182, 18);
+            this.labelControl2.TabIndex = 16;
+            this.labelControl2.Text = "TỔNG TIỀN GIẢM GIÁ = ";
             // 
             // frmKetCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 442);
-            this.Controls.Add(this.txtTienGio);
+            this.Controls.Add(this.txtTienKhuyenMai);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txtTienNuoc);
+            this.Controls.Add(this.txtTongTienHienTai);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.gridKetCa);
             this.Controls.Add(this.btnThoat);
@@ -392,8 +396,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaMonAn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
@@ -403,8 +407,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienNuoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienGio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTongTienHienTai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienKhuyenMai.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,7 +426,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnXoaMonAn;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SpinEdit txtTienNuoc;
+        private DevExpress.XtraEditors.SpinEdit txtTongTienHienTai;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
@@ -435,7 +439,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit5;
+        private DevExpress.XtraEditors.SpinEdit txtTienKhuyenMai;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SpinEdit txtTienGio;
     }
 }

@@ -49,7 +49,7 @@
                                             <dx:RibbonGroup Text="Bàn hàng & Danh mục" Name="Ban_Hang_Danh_Muc">                                                                                        
                                                 <Items>
 
-                                                    <dx:RibbonDropDownButtonItem Name="Bán Hàng Lẻ" NavigateUrl="BanHangLe.aspx" Text="Bán Hàng Lẻ" Size="Large">
+                                                    <dx:RibbonDropDownButtonItem Name="Bán Hàng Lẻ" NavigateUrl="BanHangLe.aspx" Text="Bán Hàng Lẻ" Size="Large" Visible="False">
                                                           <LargeImage Url="~/image/banhang.png">
                                                         </LargeImage>
                                                     </dx:RibbonDropDownButtonItem>
@@ -73,7 +73,7 @@
                                                             </dx:RibbonDropDownButtonItem>
                                                             <dx:RibbonDropDownButtonItem Name="Hàng Hóa" NavigateUrl="QuanLyHangHoa.aspx" Text="Hàng Hóa">
                                                             </dx:RibbonDropDownButtonItem>
-                                                            <dx:RibbonDropDownButtonItem Name="Hàng Hóa Bán Lẻ" NavigateUrl="DanhSachHangHoa.aspx" Text="Hàng Hóa Bán Lẻ">
+                                                            <dx:RibbonDropDownButtonItem Name="Hàng Hóa Bán Lẻ" NavigateUrl="DanhSachHangHoa.aspx" Text="Hàng Hóa Bán Lẻ" Visible="False">
                                                             </dx:RibbonDropDownButtonItem>
                                                         </Items>
                                                         <LargeImage Url="~/image/danhsach.png">

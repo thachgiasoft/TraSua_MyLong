@@ -71,7 +71,7 @@
             // btnABMonAn
             // 
             this.btnABMonAn.Image = ((System.Drawing.Image)(resources.GetObject("btnABMonAn.Image")));
-            this.btnABMonAn.Location = new System.Drawing.Point(622, 117);
+            this.btnABMonAn.Location = new System.Drawing.Point(622, 178);
             this.btnABMonAn.Name = "btnABMonAn";
             this.btnABMonAn.Size = new System.Drawing.Size(42, 35);
             this.btnABMonAn.TabIndex = 33;
@@ -80,7 +80,7 @@
             // btnLamLaiABMonAn
             // 
             this.btnLamLaiABMonAn.Image = ((System.Drawing.Image)(resources.GetObject("btnLamLaiABMonAn.Image")));
-            this.btnLamLaiABMonAn.Location = new System.Drawing.Point(620, 158);
+            this.btnLamLaiABMonAn.Location = new System.Drawing.Point(620, 219);
             this.btnLamLaiABMonAn.Name = "btnLamLaiABMonAn";
             this.btnLamLaiABMonAn.Size = new System.Drawing.Size(42, 35);
             this.btnLamLaiABMonAn.TabIndex = 34;
@@ -184,7 +184,7 @@
             this.gridControlA.Location = new System.Drawing.Point(12, 10);
             this.gridControlA.MainView = this.gridViewA;
             this.gridControlA.Name = "gridControlA";
-            this.gridControlA.Size = new System.Drawing.Size(602, 397);
+            this.gridControlA.Size = new System.Drawing.Size(602, 407);
             this.gridControlA.TabIndex = 45;
             this.gridControlA.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewA});
@@ -282,7 +282,7 @@
             // 
             // gridColumn24
             // 
-            this.gridColumn24.Caption = "Trọng Lượng(g)";
+            this.gridColumn24.Caption = "Trọng Lượng";
             this.gridColumn24.FieldName = "TrongLuong";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.OptionsColumn.AllowEdit = false;
@@ -296,7 +296,7 @@
             this.gridControlB.Location = new System.Drawing.Point(670, 10);
             this.gridControlB.MainView = this.gridViewB;
             this.gridControlB.Name = "gridControlB";
-            this.gridControlB.Size = new System.Drawing.Size(607, 397);
+            this.gridControlB.Size = new System.Drawing.Size(607, 412);
             this.gridControlB.TabIndex = 46;
             this.gridControlB.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewB});
@@ -394,7 +394,7 @@
             // 
             // gridColumn25
             // 
-            this.gridColumn25.Caption = "Trọng Lượng(g)";
+            this.gridColumn25.Caption = "Trọng Lượng";
             this.gridColumn25.FieldName = "TrongLuong";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.OptionsColumn.AllowEdit = false;

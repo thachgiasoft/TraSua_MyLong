@@ -18,5 +18,9 @@ namespace QLCafe.BUS
         {
             return DAO_HangHoa.DanhSachHangHoa_Full();
         }
+        public static DataTable DSHangHoaTimKiem(string TenHangHoa)
+        {
+            return DAO_HangHoa.DanhSachHangHoaTimKiem(TenHangHoa);
+        }
     }
 }

@@ -25,6 +25,13 @@ namespace QLCafe.DAO
             data = DataProvider.TruyVanLayDuLieu(sTruyVan);
             return data;
         }
+        public static DataTable DanhSachHangHoaTimKiem(string TenHangHoa)
+        {
+            string sTruyVan = string.Format(@"SELECT * FROM [CF_HangHoa] WHERE TenHangHoa LIKE N'%" + TenHangHoa + "%' AND DaXoa = 0 ORDER BY TenHangHoa ASC");
+            DataTable data = new DataTable();
+            data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+            return data;
+        }
         public static DataTable DanhSachTuChon()
         {
             string sTruyVan = string.Format(@"SELECT * FROM [CF_NguyenLieu] WHERE DaXoa = 0 AND TrangThai = 1");

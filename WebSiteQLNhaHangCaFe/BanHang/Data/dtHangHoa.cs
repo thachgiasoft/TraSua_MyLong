@@ -108,6 +108,24 @@ namespace BanHang.Data
             }
         }
 
+        public float LaySoTienCu_ChiTietGia(string ID)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = " SELECT GiaMoi FROM [CF_ChiTietBangGia] WHERE ID = '" + ID + "'";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                        return float.Parse(tb.Rows[0]["GiaMoi"].ToString());
+                    return 0;
+                }
+            }
+        }
+
         public void ThemNguyenLieu(object IDHangHoa, string IDNguyenLieu, string TrongLuong, string MaNguyenLieu, string NhaCungCap, string IDDonViTinh)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
@@ -175,6 +193,12 @@ namespace BanHang.Data
                         myCommand.Parameters.AddWithValue("@ID", ID);
                         myCommand.ExecuteNonQuery();
                     }
+                    strSQL = "UPDATE [CF_ChiTietBangGia] SET [DAXOA] = 1 WHERE [IDHangHoa] = @ID";
+                    using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
+                    {
+                        myCommand.Parameters.AddWithValue("@ID", ID);
+                        myCommand.ExecuteNonQuery();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -182,14 +206,15 @@ namespace BanHang.Data
                 }
             }
         }
-        public void ThemHangHoa(string MaHangHoa, string TenHangHoa, string GiaBan, string IDDonViTinh, string IDNhomHang, string GhiChu)
+        public object ThemHangHoa(string MaHangHoa, string TenHangHoa, string GiaBan, string IDDonViTinh, string IDNhomHang, string GhiChu)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string cmdText = "INSERT INTO [CF_HangHoa] ([MaHangHoa],[TenHangHoa],[GiaBan],[IDDonViTinh], [IDNhomHang],[GhiChu],[NgayCapNhat]) VALUES (@MaHangHoa,@TenHangHoa,@GiaBan,@IDDonViTinh, @IDNhomHang,@GhiChu,getdate())";
+                    object ID = null;
+                    string cmdText = "INSERT INTO [CF_HangHoa] ([MaHangHoa],[TenHangHoa],[GiaBan],[IDDonViTinh], [IDNhomHang],[GhiChu],[NgayCapNhat]) OUTPUT INSERTED.ID  VALUES (@MaHangHoa,@TenHangHoa,@GiaBan,@IDDonViTinh, @IDNhomHang,@GhiChu,getdate())";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@MaHangHoa", MaHangHoa);
@@ -198,9 +223,10 @@ namespace BanHang.Data
                         myCommand.Parameters.AddWithValue("@IDDonViTinh", IDDonViTinh);
                         myCommand.Parameters.AddWithValue("@IDNhomHang", IDNhomHang);
                         myCommand.Parameters.AddWithValue("@GhiChu", GhiChu);
-                        myCommand.ExecuteNonQuery();
+                        ID = myCommand.ExecuteScalar();
                     }
                     myConnection.Close();
+                    return ID;
                 }
                 catch
                 {
@@ -254,6 +280,22 @@ namespace BanHang.Data
             {
                 con.Open();
                 string cmdText = "SELECT [CF_HangHoa].* FROM [CF_HangHoa] WHERE CF_HangHoa.[DAXOA] = 0 AND [MaHangHoa] is not null AND [TenHangHoa] is not null";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    return tb;
+                }
+            }
+        }
+
+        public DataTable LayDanhSachHangHoa_MaHang(string MaHang)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT * FROM [CF_HangHoa] WHERE MaHangHoa = '" + MaHang + "'";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

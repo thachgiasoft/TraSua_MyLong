@@ -66,12 +66,6 @@ namespace QLCafe.DAO
             string sTruyVan = string.Format(@"INSERT INTO CF_DatBan(TenKhachHang,DienThoai,GioDat,IDBan) VALUES (N'{0}',N'{1}','{2}','{3}')", TenKhachHang, DienThoai, GioDat.ToString("yyyy-MM-dd hh:mm:ss tt"), idban);
             return DataProvider.TruyVanKhongLayDuLieu(sTruyVan);
         }
-        public static bool CapNhatTenKhachTrongBan(string TenKhachHang, int IDBan)
-        {
-            string sTruyVan = string.Format(@"UPDATE CF_Ban SET TenKhachHang = N'{0}' WHERE ID = {1}", TenKhachHang, IDBan);
-            return DataProvider.TruyVanKhongLayDuLieu(sTruyVan);
-        }
-
         public static int TrangThaiBan(int IDBan)
         {
             string sTruyVan = string.Format(@"SELECT TrangThai FROM [CF_Ban] WHERE ID = {0}", IDBan);

@@ -1076,6 +1076,7 @@
             this.DetailReport2.Dpi = 100F;
             this.DetailReport2.Level = 2;
             this.DetailReport2.Name = "DetailReport2";
+            this.DetailReport2.Visible = false;
             // 
             // Detail3
             // 

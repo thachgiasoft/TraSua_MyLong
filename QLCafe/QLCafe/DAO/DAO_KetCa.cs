@@ -79,6 +79,39 @@ namespace QLCafe.DAO
             else
                 return 0;
         }
+
+        public static double TongTienHienTai(int IDNhanVien)
+        {
+            string sTruyVan = string.Format(@" SELECT (SUM(TongTien)) AS TongTien FROM [CF_HoaDon] WHERE IDNhanVien = {0} AND TrangThai = 1 AND TrangThaiKetCa = 0", IDNhanVien);
+            DataTable data = new DataTable();
+            data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+            if (data.Rows.Count > 0)
+            {
+                DataRow dr = data.Rows[0];
+                if (dr["TongTien"].ToString() != "")
+                {
+                    return double.Parse(dr["TongTien"].ToString());
+                } return 0;
+            }
+            else
+                return 0;
+        }
+        public static double TongTienGiamGiaHienTai(int IDNhanVien)
+        {
+            string sTruyVan = string.Format(@" SELECT (SUM(TongTien - KhachCanTra)) AS TongTienGiamGia FROM [CF_HoaDon] WHERE IDNhanVien = {0} AND TrangThai = 1 AND TrangThaiKetCa = 0", IDNhanVien);
+            DataTable data = new DataTable();
+            data = DataProvider.TruyVanLayDuLieu(sTruyVan);
+            if (data.Rows.Count > 0)
+            {
+                DataRow dr = data.Rows[0];
+                if (dr["TongTienGiamGia"].ToString() != "")
+                {
+                    return double.Parse(dr["TongTienGiamGia"].ToString());
+                } return 0;
+            }
+            else
+                return 0;
+        }
         public static bool CapNhatKetCa(int IDNhanVien)
         {
             string sTruyVan = string.Format(@" UPDATE [CF_HoaDon] SET [TrangThaiKetCa] = 1 WHERE IDNhanVien = {0} AND TrangThai = 1 AND TrangThaiKetCa = 0", IDNhanVien);
@@ -110,9 +143,9 @@ namespace QLCafe.DAO
             else
                 return DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
         }
-        public static bool ThemKetCa(int IDNhanVien, string GioVao, string GioRa, double TongTien, string IDChiNhanh, double TienGio, double TienNuoc)
+        public static bool ThemKetCa(int IDNhanVien, string GioVao, string GioRa, double TongTienSauCa, string IDChiNhanh, double TongTien, double GiamGia)
         {
-            string sTruyVan = string.Format(@"INSERT INTO CF_KetCa(ThoiGianBatDau,ThoiGianKetThuc,TongTienSauCa,IDNhanVien,IDChiNhanh,TienGio,TienNuoc) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", DateTime.Parse(GioVao).ToString("yyyy-MM-dd hh:mm:ss tt"), DateTime.Parse(GioRa).ToString("yyyy-MM-dd hh:mm:ss tt"), TongTien, IDNhanVien, IDChiNhanh, TienGio, TienNuoc);
+            string sTruyVan = string.Format(@"INSERT INTO CF_KetCa(ThoiGianBatDau,ThoiGianKetThuc,TongTienSauCa,IDNhanVien,IDChiNhanh,TongTien,GiamGia) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", DateTime.Parse(GioVao).ToString("yyyy-MM-dd hh:mm:ss tt"), DateTime.Parse(GioRa).ToString("yyyy-MM-dd hh:mm:ss tt"), TongTienSauCa, IDNhanVien, IDChiNhanh, TongTien, GiamGia);
             return DataProvider.TruyVanKhongLayDuLieu(sTruyVan);
         }
     }

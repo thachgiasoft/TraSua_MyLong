@@ -15,7 +15,6 @@ namespace QLCafe.DAO
     {
         public static int setKeyCode(string Key, string user)
         {
-            //PhysicalAddress address = GetMacAddress();
             string sx = GetHardDiskSerialNo();
 
             string strAddress = sx + "GPM";
@@ -23,25 +22,24 @@ namespace QLCafe.DAO
             if (Key.CompareTo("gpm686970") == 0)
             {
                 string sha1Address = GetSHA1HashData(strAddress);
-                string sTruyVan = string.Format(@"UPDATE [Setting] SET [TestDuLieu] = '{0}' WHERE ID = 1", sha1Address);
+                string sTruyVan = string.Format(@"INSERT INTO  [CF_KeyCode] (GetKey,NgayKichHoat) VALUES('{0}',getdate())", sha1Address);
                 DataProvider.TruyVanKhongLayDuLieu(sTruyVan);
                 return 1;
             }
             return -1;
 
         }
-        public static string getData_Setting()
+        public static int getData_Setting(string CD)
         {
-            string sTruyVan = string.Format(@"SELECT TestDuLieu FROM [Setting] ");
+            string sTruyVan = string.Format(@"SELECT GetKey FROM [CF_KeyCode] WHERE GetKey  = '" + CD + "'");
             DataTable data = new DataTable();
             data = DataProvider.TruyVanLayDuLieu(sTruyVan);
             if (data.Rows.Count > 0)
             {
-                DataRow dr = data.Rows[0];
-                return dr["TestDuLieu"].ToString();
+                return 1;
             }
             else
-                return "";
+                return 0;
         }
         public static string GetHardDiskSerialNo()
         {
@@ -52,17 +50,12 @@ namespace QLCafe.DAO
         }
         public static int getKeyCode()
         {
-            //PhysicalAddress address = GetMacAddress();
             string sx = GetHardDiskSerialNo();
-
             string strAddress = sx + "GPM";
+
             string sha1Address = GetSHA1HashData(strAddress);
-            if (getData_Setting() != "")
-            {
-                string macAddress = getData_Setting();
-                if (macAddress.CompareTo(sha1Address) == 0)
-                    return 1;
-            }
+            if (getData_Setting(sha1Address) == 1)
+                return 1;
             return -1;
         }
         public static bool IsNumber(string pValue)

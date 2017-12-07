@@ -166,7 +166,7 @@ namespace BanHang
                             data = new dtPhieuXuatKhac();
                             data.ThemChiTietPhieuXuatKhac(ID, IDNguyenLieu, TonKho, IDDonViTinh, SoLuongXuat, MaNguyenLieu, DonGia, ThanhTien);
 
-                            dtLichSuKho.ThemLichSu(Session["IDChiNhanh"].ToString(), IDNguyenLieu, Session["IDNhanVien"].ToString(), dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu), (Int32.Parse(dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu)) - Int32.Parse(SoLuongXuat)) + "", "Phiếu xuất khác");
+                            //dtLichSuKho.ThemLichSu(Session["IDChiNhanh"].ToString(), IDNguyenLieu, Session["IDNhanVien"].ToString(), dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu), (Int32.Parse(dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu)) - Int32.Parse(SoLuongXuat)) + "", "Phiếu xuất khác");
                             
                             dtSetting.TruTonKho(IDNguyenLieu, SoLuongXuat, IDChiNhanh);
                         }

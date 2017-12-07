@@ -213,12 +213,6 @@
     <Compile Include="frmTachBill.Designer.cs">
       <DependentUpon>frmTachBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThemTenKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmThemTenKhachHang.Designer.cs">
-      <DependentUpon>frmThemTenKhachHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmTinhGio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,7 +245,7 @@
     <Compile Include="Report\rpHoaDonBanHang_581_Temp.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report\rpHoaDonBanHang_581_Temp.Designer.cs">
+    <Compile Include="Report\rpHoaDonBanHang_581_Temp.designer.cs">
       <DependentUpon>rpHoaDonBanHang_581_Temp.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmBanHang.resx">
@@ -292,9 +286,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTachBill.resx">
       <DependentUpon>frmTachBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmThemTenKhachHang.resx">
-      <DependentUpon>frmThemTenKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTinhGio.resx">
       <DependentUpon>frmTinhGio.cs</DependentUpon>

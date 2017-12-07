@@ -18,11 +18,11 @@ namespace BanHang
         private void LoadGrid()
         {
             DataTable da = new DataTable();
-            da.Columns.Add("SoLuongKhach", typeof(String));
             da.Columns.Add("SoBanSuDung", typeof(String));
-            da.Columns.Add("TongTienGio", typeof(float));
-            da.Columns.Add("TongTienHang", typeof(float));
-            da.Columns.Add("TongTienHienTai", typeof(float));
+            da.Columns.Add("TongVon", typeof(float));
+            da.Columns.Add("GiamGia", typeof(float));
+            da.Columns.Add("TienHienTai", typeof(float));
+            da.Columns.Add("LoiNhuan", typeof(float));
 
             DateTime date = DateTime.Now;
             string ngayBD = ""; string ngayKT = "";
@@ -30,20 +30,27 @@ namespace BanHang
             ngayKT = date.ToString("yyyy-MM-dd ");
             ngayBD = ngayBD + "00:00:0.000";
             ngayKT = ngayKT + "23:59:59.999";
-            int SoLuongKhach = dtQuanLyCuaHang.SoKhachHienTai();
+
             int SoLuongBan = dtQuanLyCuaHang.SoLuongBan();
-            DataTable daTienGio = dtQuanLyCuaHang.TongTienHienTai(ngayBD, ngayKT);
+            DataTable data = dtQuanLyCuaHang.TongTienHienTai(ngayBD, ngayKT);
             float TongTien = 0;
             float TongTienGio = 0;
-            try{
-                if(daTienGio.Rows.Count != 0){
-                    TongTien = float.Parse(daTienGio.Rows[0]["TongTien"].ToString());
-                    TongTienGio = float.Parse(daTienGio.Rows[0]["TienGio"].ToString());
+            float KhachCanTra = 0;
+            float TongGiaMua = 0;
+            try
+            {
+                if (data.Rows.Count != 0)
+                {
+                    TongTien = float.Parse(data.Rows[0]["TongTien"].ToString());
+                    TongTienGio = float.Parse(data.Rows[0]["TienGio"].ToString());
+                    KhachCanTra = float.Parse(data.Rows[0]["KhachCanTra"].ToString());
+                    TongGiaMua = dtQuanLyCuaHang.TongTienVonHienTai(ngayBD, ngayKT);
                 }
-            }catch(Exception){}
+            }
+            catch (Exception) { }
 
 
-            da.Rows.Add(SoLuongKhach, SoLuongBan,TongTienGio, TongTien, TongTien + TongTienGio);
+            da.Rows.Add(SoLuongBan, TongGiaMua, (TongTien + TongTienGio) - KhachCanTra, KhachCanTra, KhachCanTra - TongGiaMua);
 
             gridDanhSachBan.DataSource = da;
             gridDanhSachBan.DataBind();

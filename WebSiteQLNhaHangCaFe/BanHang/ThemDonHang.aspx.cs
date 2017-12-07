@@ -271,7 +271,7 @@ namespace BanHang
                             // ghi lịch sử
                             data.ThemChiTietDonHang(ID, IDNguyenLieu, MaNguyenLieu, IDDonViTinh, SoLuong, DonGia);
 
-                            dtLichSuKho.ThemLichSu(Session["IDChiNhanh"].ToString(), IDNguyenLieu, Session["IDNhanVien"].ToString(), dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu), (Int32.Parse(dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu)) + Int32.Parse(SoLuong)) + "", "Thêm đơn hàng");
+                            //dtLichSuKho.ThemLichSu(Session["IDChiNhanh"].ToString(), IDNguyenLieu, Session["IDNhanVien"].ToString(), dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu), (float.Parse(dtLichSuKho.LaySoLuongTonKho(Session["IDChiNhanh"].ToString(), IDNguyenLieu)) + float.Parse(SoLuong)) + "", "Thêm đơn hàng");
                         }
                         data = new dtThemDonHangKho();
                         data.XoaChiTietDonHang_Nhap(IDThuMuaDatHang);

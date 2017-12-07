@@ -30,8 +30,8 @@ namespace QLCafe
             gridViewKetCa.OptionsSelection.EnableAppearanceFocusedRow = false;// Ẩn dòng đầu.
             List<DTO_KetCa> listKetCa = DAO_KetCa.Instance.DanhSachCaBan(DateTime.Now,frmDangNhap.NguoiDung.Idchinhanh);
             gridKetCa.DataSource = listKetCa;
-            txtTienNuoc.Text = DAO_KetCa.TongTienKetCaTienNuoc(frmDangNhap.NguoiDung.Id).ToString();
-            txtTienGio.Text = DAO_KetCa.TongTienKetCaTienGio(frmDangNhap.NguoiDung.Id).ToString();
+            txtTongTienHienTai.Text = DAO_KetCa.TongTienHienTai(frmDangNhap.NguoiDung.Id) + "";
+            txtTienKhuyenMai.Text = DAO_KetCa.TongTienGiamGiaHienTai(frmDangNhap.NguoiDung.Id) + "";
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -43,12 +43,12 @@ namespace QLCafe
             if (MessageBox.Show("Bạn muốn kết ca", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
             {
                 int IDNhanVien = frmDangNhap.NguoiDung.Id;
-                double TongTienHienTai = DAO_KetCa.TongTienKetCa(IDNhanVien);
-                double TienGio = DAO_KetCa.TongTienKetCaTienGio(IDNhanVien);
-                double TienNuoc = DAO_KetCa.TongTienKetCaTienNuoc(IDNhanVien);
+                double TongTien = DAO_KetCa.TongTienHienTai(IDNhanVien);
+                double GiamGia = DAO_KetCa.TongTienGiamGiaHienTai(IDNhanVien);
+                double ThanhTien = TongTien - GiamGia; 
                 string GioVaoCa = DAO_KetCa.GioVaoCa(IDNhanVien, DateTime.Now);
                 string GioRaCa = DAO_KetCa.GioRaCa(IDNhanVien, DateTime.Now);
-                if (DAO_KetCa.ThemKetCa(IDNhanVien, GioVaoCa, GioRaCa, TongTienHienTai, frmDangNhap.NguoiDung.Idchinhanh, TienGio, TienNuoc) == true)
+                if (DAO_KetCa.ThemKetCa(IDNhanVien, GioVaoCa, GioRaCa, ThanhTien, frmDangNhap.NguoiDung.Idchinhanh, TongTien, GiamGia) == true)
                 {
                     // đổi trạng thái hóa đơn kết ca  = 1
                     DAO_Setting.ThemLichSuTruyCap(frmDangNhap.NguoiDung.Id, frmDangNhap.NguoiDung.IDNhomNguoiDung, frmDangNhap.NguoiDung.Idchinhanh, "Kết Ca", "Nhân Viên Kết Ca Bán Hàng");

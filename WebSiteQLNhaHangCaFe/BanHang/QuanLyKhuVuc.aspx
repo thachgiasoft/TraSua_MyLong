@@ -49,6 +49,8 @@
                                             </dx:GridViewColumnLayoutItem>
                                             <dx:GridViewColumnLayoutItem ColumnName="Ký Hiệu" Name="KyHieu">
                                             </dx:GridViewColumnLayoutItem>
+                                            <dx:GridViewColumnLayoutItem ColumnName="Bảng Giá Đang Áp Dụng">
+                                            </dx:GridViewColumnLayoutItem>
                                             <dx:GridViewColumnLayoutItem ColumnName="Ghi Chú" Name="GhiChu">
                                             </dx:GridViewColumnLayoutItem>
                                             <dx:EditModeCommandLayoutItem HorizontalAlign="Right">
@@ -91,6 +93,13 @@
                                                 </ValidationSettings>
                                             </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataComboBoxColumn Caption="Bảng Giá Đang Áp Dụng" FieldName="IDBangGia" ShowInCustomizationForm="True" VisibleIndex="3">
+                                            <PropertiesComboBox DataSourceID="SqlBangGia" TextField="TenBangGia" ValueField="ID">
+                                                <ValidationSettings SetFocusOnError="True">
+                                                    <RequiredField IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesComboBox>
+                                        </dx:GridViewDataComboBoxColumn>
                                     </Columns>
                                     <Styles>
                                         <Header Font-Bold="True" HorizontalAlign="Center">
@@ -101,6 +110,11 @@
                                         </TitlePanel>
                                     </Styles>
                                 </dx:ASPxGridView>
+                                <asp:SqlDataSource ID="SqlBangGia" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenBangGia] FROM [CF_BangGia] WHERE ([DaXoa] = @DaXoa)">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>

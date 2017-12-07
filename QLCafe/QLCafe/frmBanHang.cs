@@ -128,16 +128,13 @@ namespace QLCafe
             {
                 int TrangThai = item.Trangthai;
                 string TenBan = item.Tenban;
-                string TenKhachHang = item.TenKhachHang;
                 SimpleButton btn = new SimpleButton();
                 btn.Width = 80;
                 btn.Height = 80;
-                btn.Text = TenBan + Environment.NewLine + TenKhachHang;
+                btn.Text = TenBan;
                 btn.Click += btn_Click;
-                btn.DoubleClick +=btn_DoubleClick;
                 btn.MouseDown += btn_MouseDown;
                 btn.Tag = item;
-
                 switch (TrangThai)
                 {
                     case 0:
@@ -168,20 +165,6 @@ namespace QLCafe
             }
         }
 
-        private void btn_DoubleClick(object sender, EventArgs e)
-        {
-            frmThemTenKhachHang fr = new frmThemTenKhachHang();
-            fr.MyGetData = new frmThemTenKhachHang.GetThemKhachHang(GetThemKhachHang);
-            fr.ShowDialog();
-        }
-        public void GetThemKhachHang(string TenKhachHang, int IDBan)
-        {
-            bool KT = DAO_BAN.CapNhatTenKhachTrongBan(TenKhachHang, IDBan);
-            if (KT == true)
-            {
-                DanhSachBan();
-            }
-        }
         private void btn_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -245,7 +228,7 @@ namespace QLCafe
         }
         public void LoadTongTien()
         {
-            txtTongTien.Text = DAO_HoaDon.TongTienHoaDon(DAO_BanHang.IDHoaDon(IDBan)).ToString(); 
+            txtTongTien.Text = DAO_HoaDon.TongTienHoaDon(DAO_BanHang.IDHoaDon(IDBan)).ToString();
             txtKhachCanTra.Text = (DAO_HoaDon.KhachCanTra(DAO_BanHang.IDHoaDon(IDBan))).ToString();
             txtKhachThanhToan.Text = (DAO_HoaDon.KhachCanTra(DAO_BanHang.IDHoaDon(IDBan))).ToString();
         }
@@ -311,10 +294,6 @@ namespace QLCafe
                     DAO_DatBan.XoaKhachDat(IDBan);
                     DanhSachBan();
                     HienThiHoaDon(IDBan);
-                    //gridControlCTHD.DataSource = null;
-                    //gridControlCTHD.Refresh();
-                    MessageBox.Show("Cập Nhật Thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                   
                 }
                 else
                 {
@@ -564,9 +543,6 @@ namespace QLCafe
             frmTinhGio fr = new frmTinhGio();
             fr.ShowDialog();
         }
-
-       
-        
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             int IDBanHT = IDBan;
@@ -633,7 +609,7 @@ namespace QLCafe
                     if (insert == true)
                     {
                         // xóa chi tiết hóa đơn temp, cập nhật chi tiết giờ thanh toán  = 1,
-                        if (DAO_ChiTietHoaDonChinh.XoaChiTietHoaDonTemp(IDHoaDonHT) == true && DAO_ChiTietHoaDonChinh.CapNhatChiTietGio(IDHoaDonHT, IDBanHT) == true && DAO_BAN.CapNhatTenKhachTrongBan("", IDBanHT) == true)
+                        if (DAO_ChiTietHoaDonChinh.XoaChiTietHoaDonTemp(IDHoaDonHT) == true && DAO_ChiTietHoaDonChinh.CapNhatChiTietGio(IDHoaDonHT, IDBanHT) == true)
                         {
                             // cập nhật trạng thái hóa đơn đã thanh toán, đổi trạng thái bàn
                             int IDNhanVien = frmDangNhap.NguoiDung.Id;
@@ -642,7 +618,7 @@ namespace QLCafe
                             double GiamGia = double.Parse(txtGiamGia.Text.ToString());
                             double KhachCanTra = double.Parse(txtKhachCanTra.Text.ToString());
                             string HinhThucThanhToan = cmbHinhThucGiamGia.Text.ToString();
-                            if (DAO_ChiTietHoaDonChinh.CapNhatHoaDonChinh(IDHoaDonHT, IDBanHT, IDNhanVien, KhachThanhToan, TienThua, KhachCanTra, HinhThucThanhToan, GiamGia) == true && DAO.DAO_BAN.XoaBanVeMatDinh(IDBanHT) == true)// thành công
+                            if (DAO_ChiTietHoaDonChinh.CapNhatHoaDonChinh(IDHoaDonHT, IDBanHT, IDNhanVien, KhachThanhToan, TienThua,KhachCanTra,HinhThucThanhToan,GiamGia) == true && DAO.DAO_BAN.XoaBanVeMatDinh(IDBanHT) == true)// thành công
                             {
                                 txtKhachThanhToan.Text = "0";
                                 txtTienThoi.Text = "0";
@@ -808,6 +784,7 @@ namespace QLCafe
                         //rp.ShowPreviewDialog();
                         rp.Print(NamePrinter);
                     }
+                    
                     
                 }
                 else

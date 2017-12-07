@@ -22,6 +22,8 @@ namespace QLCafe
         int IDHoaDon = DAO_BanHang.IDHoaDon(frmBanHang.IDBan);
         List<ChiTietHoaDonA1> listChiTietMonAn = new List<ChiTietHoaDonA1>();
         List<ChiTietHoaDonB1> listChiTietMonAnThanhToan = new List<ChiTietHoaDonB1>();
+        
+
         public delegate void GetString(int KT, int IDHoaDon, int IDBan);
         public GetString MyGetData;
         public frmTachBill()
@@ -34,10 +36,10 @@ namespace QLCafe
             //gridViewA.OptionsSelection.EnableAppearanceFocusedRow = false;// Ẩn dòng đầu...
             gridViewB.OptionsSelection.EnableAppearanceFocusedRow = false;// Ẩn dòng đầu...
             //gridViewC.OptionsSelection.EnableAppearanceFocusedRow = false;// Ẩn dòng đầu...
-          
+           
             lblTenBan.Text = DAO_GoiMon.TenBan(IDBan);
             DanhSachHangHoaA();
-          
+           
         }
 
         private void LamMoi()
@@ -49,7 +51,6 @@ namespace QLCafe
         }
 
        
-        
         private void DanhSachHangHoaA()
         {
             listChiTietMonAn.Clear();
@@ -183,8 +184,6 @@ namespace QLCafe
                 MessageBox.Show("Danh sách món ăn không có.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-      
         public class ChiTietHoaDonA1
         
         {
@@ -296,6 +295,7 @@ namespace QLCafe
         }
 
        
+
         private void btnThucHien_Click(object sender, EventArgs e)
         {
             // thanh toán... đưa dữ liệu lai from chính, laod lại món ăn, tiền giờ.OK
@@ -409,6 +409,7 @@ namespace QLCafe
                                 //rp.ShowPreviewDialog();
                                 rp.Print(NamePrinter);
                             }
+                            
                         }
                     }
                 }
