@@ -439,7 +439,7 @@
             this.gridColumn21.OptionsColumn.AllowEdit = false;
             this.gridColumn21.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowForFocusedRow;
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 4;
+            this.gridColumn21.VisibleIndex = 3;
             this.gridColumn21.Width = 21;
             // 
             // gridColumn22
@@ -451,7 +451,7 @@
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.OptionsColumn.AllowEdit = false;
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 5;
+            this.gridColumn22.VisibleIndex = 4;
             this.gridColumn22.Width = 62;
             // 
             // gridColumn26
@@ -463,7 +463,7 @@
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.OptionsColumn.AllowEdit = false;
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 6;
+            this.gridColumn26.VisibleIndex = 5;
             this.gridColumn26.Width = 80;
             // 
             // gridColumn6
@@ -472,8 +472,6 @@
             this.gridColumn6.FieldName = "TrongLuong";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 3;
             this.gridColumn6.Width = 85;
             // 
             // gridControlB
@@ -546,7 +544,7 @@
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowForFocusedRow;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 25;
             // 
             // gridColumn5
@@ -558,7 +556,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
+            this.gridColumn5.VisibleIndex = 4;
             this.gridColumn5.Width = 77;
             // 
             // gridColumn9
@@ -570,7 +568,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 6;
+            this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 98;
             // 
             // gridColumn7
@@ -578,8 +576,6 @@
             this.gridColumn7.Caption = "Trọng Lượng";
             this.gridColumn7.FieldName = "TrongLuong";
             this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 3;
             this.gridColumn7.Width = 91;
             // 
             // frmGopBan

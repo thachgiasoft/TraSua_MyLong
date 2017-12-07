@@ -251,7 +251,7 @@
             this.gridColumn21.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoLuong", "Tổng={0:0.##}")});
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 4;
+            this.gridColumn21.VisibleIndex = 3;
             this.gridColumn21.Width = 50;
             // 
             // gridColumn22
@@ -263,7 +263,7 @@
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.OptionsColumn.AllowEdit = false;
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 5;
+            this.gridColumn22.VisibleIndex = 4;
             this.gridColumn22.Width = 78;
             // 
             // gridColumn26
@@ -277,7 +277,7 @@
             this.gridColumn26.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ThanhTien", "Tổng={0:N0}")});
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 6;
+            this.gridColumn26.VisibleIndex = 5;
             this.gridColumn26.Width = 106;
             // 
             // gridColumn24
@@ -286,8 +286,6 @@
             this.gridColumn24.FieldName = "TrongLuong";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.OptionsColumn.AllowEdit = false;
-            this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 3;
             this.gridColumn24.Width = 99;
             // 
             // gridControlB
@@ -363,7 +361,7 @@
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoLuong", "Tổng={0:0.##}")});
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 53;
             // 
             // gridColumn5
@@ -375,7 +373,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
+            this.gridColumn5.VisibleIndex = 4;
             this.gridColumn5.Width = 79;
             // 
             // gridColumn6
@@ -389,7 +387,7 @@
             this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ThanhTien", "Tổng={0:N0}")});
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.VisibleIndex = 5;
             this.gridColumn6.Width = 105;
             // 
             // gridColumn25
@@ -398,8 +396,6 @@
             this.gridColumn25.FieldName = "TrongLuong";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.OptionsColumn.AllowEdit = false;
-            this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 3;
             this.gridColumn25.Width = 100;
             // 
             // frmTachBill

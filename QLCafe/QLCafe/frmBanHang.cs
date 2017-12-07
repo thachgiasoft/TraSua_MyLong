@@ -749,13 +749,12 @@ namespace QLCafe
             }
             else
             {
-                int KT = DAO_BanHang.KiemTraLayIDGioBatDau(IDHoaDonHT, IDBanHT);// kiểm tra xem có giờ kết thúc hay không
-                if (KT == 0)
+
+                if (MessageBox.Show("In phiếu tạm tính", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                 {
                     //List<DTO_ChiTietHoaDon> DanhSachHoaDon = DAO_ChiTietHoaDon.Instance.ChiTietHoaDon(IDHoaDonHT);
                     // in hóa đớn, cập nhật hóa đơn
                     DAO_ConnectSQL connect = new DAO_ConnectSQL();
-
                     // Tên máy in
                     string NamePrinter = DAO_Setting.LayTenMayInBill();
                     DAO_Setting.CapNhatBillInTemp(IDHoaDonHT + "");
@@ -786,10 +785,6 @@ namespace QLCafe
                     }
                     
                     
-                }
-                else
-                {
-                    MessageBox.Show("Bàn chưa có giờ kết thúc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
